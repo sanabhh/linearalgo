@@ -1,0 +1,25 @@
+ALGORITHM simpleHash
+VAR
+   A : ARRAY_OF type[12, 13, 6, 10];
+   B : ARRAY_OF type[13, 10, 15, 16];
+   sum : INTEGER := 0;
+   H : HASH_TABLE<Key_type,Value_type>
+BEGIN
+     FOR i FROM 1 TO A.length STEP 1  DO
+            H.insert(A[i], 1)
+        END_FOR
+     FOR i FROM 1 TO B.length STEP 1  DO
+        IF (H.lookup(B[i] = TRUE)) THEN
+            H.insert(B[i], 2)
+        ELSE  
+        H.insert(B[i], 1)
+        END_IF
+        
+        FOR i FROM 1 TO A.length STEP 1  DO
+            IF (H.get(A[i])=2) THEN
+                 sum := sum + A[i]*2 
+            END_IF
+        END_FOR
+
+     END_FOR
+END

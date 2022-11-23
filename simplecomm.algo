@@ -1,0 +1,14 @@
+ALGORITHM simplecomm
+VAR
+   A : ARRAY_OF type[12, 13, 6, 10];
+   B : ARRAY_OF type[13, 10, 15, 16];
+   sum : INTEGER := 0;
+BEGIN
+    FOR i FROM 1 TO A.length STEP 1  DO
+        FOR j FROM 1 TO A.length STEP 1  DO
+            IF (A[i] = B[j]) THEN
+                sum := sum + A[i]*2
+            END_IF
+        END_FOR
+    END_FOR
+END
